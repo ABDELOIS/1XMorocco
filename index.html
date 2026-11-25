@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1XMorocco | Football</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial,sans-serif;
+  background:#080b14;
+  color:#fff;
+}
+header{
+  background:linear-gradient(135deg,#101a31,#070a12);
+  padding:20px;
+  border-bottom:1px solid #c9a44c;
+  text-align:center;
+}
+.logo{
+  font-size:30px;
+  font-weight:900;
+  color:#f4d06f;
+  text-shadow:0 0 15px #c99b37;
+}
+.logo span{color:#fff}
+.subtitle{
+  color:#aeb9cc;
+  font-size:11px;
+  letter-spacing:3px;
+  margin-top:5px;
+}
+.container{
+  max-width:500px;
+  margin:auto;
+  padding:15px;
+}
+.hero{
+  background:linear-gradient(135deg,#142441,#090d18);
+  border:1px solid #b99542;
+  border-radius:20px;
+  padding:25px 15px;
+  text-align:center;
+  margin-bottom:18px;
+  box-shadow:0 0 25px #c19b3520;
+}
+.hero h1{
+  font-size:25px;
+  color:#f5d77e;
+  margin-bottom:10px;
+}
+.hero p{color:#b8c2d5;font-size:14px}
+.card{
+  background:#111827;
+  border:1px solid #26344d;
+  border-radius:17px;
+  padding:18px;
+  margin-bottom:15px;
+}
+.balance{
+  text-align:center;
+  background:linear-gradient(135deg,#17243b,#101522);
+}
+.balance h3{
+  color:#c7a654;
+  font-size:13px;
+  margin-bottom:10px;
+}
+.balance .amount{
+  font-size:30px;
+  font-weight:bold;
+}
+.balance small{color:#9ca8bd}
+.buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:15px 0;
+}
+button{
+  border:0;
+  padding:15px;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.deposit{
+  background:linear-gradient(135deg,#0b8b62,#16b982);
+  color:white;
+}
+.withdraw{
+  background:linear-gradient(135deg,#1765b4,#2989e8);
+  color:white;
+}
+.section-title{
+  color:#e9c76a;
+  margin-bottom:15px;
+  font-size:18px;
+}
+.match{
+  background:#0b1220;
+  border:1px solid #26344d;
+  border-radius:13px;
+  padding:15px;
+  margin-bottom:10px;
+}
+.match-top{
+  display:flex;
+  justify-content:space-between;
+  color:#9eabc0;
+  font-size:12px;
+  margin-bottom:12px;
+}
+.teams{
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  font-weight:bold;
+  text-align:center;
+}
+.team{width:40%}
+.vs{
+  color:#d5b45c;
+  font-size:13px;
+}
+.tag{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#1d2b43;
+  color:#f1cf73;
+  font-size:11px;
+  margin-top:10px;
+}
+input,select{
+  width:100%;
+  background:#0b1220;
+  color:#fff;
+  border:1px solid #34445e;
+  padding:13px;
+  border-radius:10px;
+  margin:8px 0;
+}
+.submit{
+  width:100%;
+  background:#c8a64d;
+  color:#080b14;
+  margin-top:8px;
+}
+footer{
+  text-align:center;
+  padding:25px;
+  color:#65738a;
+  font-size:12px;
+}
+.nav{
+  display:flex;
+  justify-content:space-around;
+  background:#101827;
+  border-top:1px solid #26344d;
+  padding:15px 5px;
+  position:sticky;
+  bottom:0;
+}
+.nav a{
+  color:#b8c4d8;
+  text-decoration:none;
+  font-size:12px;
+}
+.hidden{display:none}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">✦ 1X<span>Morocco</span> ✦</div>
+  <div class="subtitle">FOOTBALL • SPORT • MOROCCO</div>
+</header>
+
+<div class="container">
+
+  <div class="hero">
+    <h1>Bienvenue sur 1XMorocco</h1>
+    <p>Votre espace football et actualités sportives</p>
+  </div>
+
+  <div class="card balance">
+    <h3>MON ESPACE</h3>
+    <div class="amount">0.00 DH</div>
+    <small>Interface de démonstration</small>
+  </div>
+
+  <div class="buttons">
+    <button class="deposit" onclick="showForm('charge')">
+      🔵 Demande
+    </button>
+
+    <button class="withdraw" onclick="showForm('retrait')">
+      🟢 Assistance
+    </button>
+  </div>
+
+  <div class="card hidden" id="formCard">
+    <h3 class="section-title" id="formTitle">Formulaire</h3>
+
+    <input type="text" id="nom" placeholder="Votre nom">
+
+    <input type="text" id="contact" placeholder="WhatsApp ou téléphone">
+
+    <select id="type">
+      <option>Demande d'information</option>
+      <option>Assistance technique</option>
+      <option>Autre demande</option>
+    </select>
+
+    <input type="text" id="details" placeholder="Détails de votre demande">
+
+    <button class="submit" onclick="sendRequest()">
+      Envoyer la demande
+    </button>
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">⚽ Matchs du jour</h3>
+
+    <div class="match">
+      <div class="match-top">
+        <span>Football</span>
+        <span>Match</span>
+      </div>
+
+      <div class="teams">
+        <div class="team">🏆 Équipe 1</div>
+        <div class="vs">VS</div>
+        <div class="team">🏆 Équipe 2</div>
+      </div>
+
+      <div style="text-align:center">
+        <span class="tag">Match à venir</span>
+      </div>
+    </div>
+
+    <div class="match">
+      <div class="match-top">
+        <span>Football</span>
+        <span>Match</span>
+      </div>
+
+      <div class="teams">
+        <div class="team">⚽ Équipe 3</div>
+        <div class="vs">VS</div>
+        <div class="team">⚽ Équipe 4</div>
+      </div>
+
+      <div style="text-align:center">
+        <span class="tag">Match à venir</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">📩 Contact & Assistance</h3>
+    <p style="color:#aeb9cc;font-size:14px">
+      Pour toute demande ou assistance, envoyez votre message
+      via le formulaire.
+    </p>
+  </div>
+
+</div>
+
+<div class="nav">
+  <a href="#">🏠 Accueil</a>
+  <a href="#formCard">📩 Demandes</a>
+  <a href="#">⚽ Football</a>
+  <a href="#">👤 Profil</a>
+</div>
+
+<footer>
+  © 2026 1XMorocco
+</footer>
+
+<script>
+function showForm(type){
+  const card=document.getElementById('formCard');
+  card.classList.remove('hidden');
+
+  if(type==='charge'){
+    document.getElementById('formTitle').innerText=
+    '🔵 Nouvelle demande';
+  }else{
+    document.getElementById('formTitle').innerText=
+    '🟢 Assistance';
+  }
+
+  card.scrollIntoView({behavior:'smooth'});
+}
+
+function sendRequest(){
+  const nom=document.getElementById('nom').value;
+  const contact=document.getElementById('contact').value;
+  const type=document.getElementById('type').value;
+  const details=document.getElementById('details').value;
+
+  if(!nom || !contact){
+    alert('Veuillez remplir votre nom et contact');
+    return;
+  }
+
+  const message=
+  'Nouvelle demande 1XMorocco%0A'+
+  'Nom: '+nom+'%0A'+
+  'Contact: '+contact+'%0A'+
+  'Type: '+type+'%0A'+
+  'Details: '+details;
+
+  alert('Votre demande a été préparée. La gestion réelle nécessite un système serveur sécurisé.');
+
+  console.log(message);
+}
+</script>
+
+</body>
+</html>
